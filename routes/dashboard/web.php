@@ -26,7 +26,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::resource('advisoryServices', 'AdvisoryServiceController')->except(['show']);
 
     //purchase routes
-    Route::resource('purchase', 'PurchaseController');
+    Route::resource('purchases', 'PurchaseController');
 
     //purchase routes
     Route::resource('posts', 'PostController');

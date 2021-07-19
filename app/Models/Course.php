@@ -31,4 +31,10 @@ class Course extends Model
 
     }//end of get image path
 
+    // public function getDemoVideoPathAttribute()
+    // {
+    //     $this->demo_video;
+
+    // }//end of get image path
+
 }//end of models

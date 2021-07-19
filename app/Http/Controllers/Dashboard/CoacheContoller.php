@@ -11,6 +11,16 @@ use Intervention\Image\Facades\Image;
 
 class CoacheContoller extends Controller
 {
+    
+    public function __construct()
+    {
+        //create read update delete
+        $this->middleware(['permission:coaches_read'])->only('index');
+        $this->middleware(['permission:coaches_create'])->only('create');
+        $this->middleware(['permission:coaches_update'])->only('edit');
+        $this->middleware(['permission:coaches_delete'])->only('destroy');
+
+    } //end of constructor
  
     public function index(Request $request)
     {

@@ -15,21 +15,26 @@ return [
         
         'coaches' => [
             'dashboard'  => 'r',
+            'courses'    => 'c,r,u,d',
         ],
         
         'super_admin' => [
             'dashboard'        => 'r',
+            'settings'         => 'r',
             'advisoryServices' => 'c,r,u,d',
             'certificates'     => 'c,r,u,d',
-            'posts'            => 'c,r,u,d',
-            'courses'          => 'c,r,u,d',
             'coaches'          => 'c,r,u,d',
+            'courses'          => 'c,r,u,d',
+            'posts'            => 'c,r,u,d',
             'categories'       => 'c,r,u,d',
+            'purchases'        => 'c,r,u,d',
             'users'            => 'c,r,u,d',
         ],
 
 
-        'admin'   => [],
+        'admin'   => [
+            'dashboard'  => 'r',
+        ],
         
     ],
 

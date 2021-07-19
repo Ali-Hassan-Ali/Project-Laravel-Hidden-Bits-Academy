@@ -58,6 +58,7 @@
                                 <th>الوصف المختصر</th>
                                 <th>التقيم</th>
                                 <th>وقت الكورس</th>
+                                <th>الفديو</th>
                                 <th>الصوره</th>
                                 <th>الاحداث</th>
                             </tr>
@@ -74,12 +75,11 @@
                                     <td>{{ $course->time }}</td>
                                     <td>
                                         <video controls poster="{{ $course->image_path }}">
-                                          <source src="https://www.youtube.com/watch?v=FPWkm-WyXRo&list=PLDoPjvoNmBAyXCAQMLhDRZsLi_HurqTBZ&index=17" type="video/mp4">
-                                          <source src="https://127.0.0.1:8000/storage/app/{{ $course->demo_video }}" type="video/ogg">
-                                          <source src="https://127.0.0.1:8000/storage/app/{{ $course->demo_video }}" type="video/webm">
+                                          <source src="{{ asset('uploads/'.$course->demo_video) }}" type="video/ogg">
+                                          <source src="{{ asset('uploads/'.$course->demo_video) }}" type="video/webm">
                                         </video>
                                     </td>
-                                    <td><img src="{{ $course->image_path }}" alt="" width="100"></td>
+                                    <td><img src="{{ $course->image_path }}" alt="" width="10"></td>
                                     <td>
                                         @if (auth()->user()->hasPermission('courses_update'))
                                             <a href="{{ route('dashboard.courses.edit', $course->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('dashboard.edit')</a>

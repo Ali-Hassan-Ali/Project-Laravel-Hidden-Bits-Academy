@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Certificate extends Model
 {
-        public $guarded = [];
+    public $guarded = [];
 
     public function scopeWhenSearch($query , $search) 
     {

@@ -20,7 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('bill_image');
-            $table->string('name_course');
+            $table->string('name_course')->nullable();
             $table->string('status')->default('0');
             $table->string('users_id');
 

@@ -41,7 +41,7 @@
                     <div class="row clearfix">                                    
                         <!-- Form Group -->
                         <div class="form-group col-lg-12">
-                            <input class="bg-transparent text-light" type="text" value="{{ auth()->user()->name }}" id="Name" name="first_name" value="" placeholder="الاسم الاول" required="">
+                            <input class="bg-transparent text-light" type="text" value="{{ auth()->user()->name }}" id="Name" name="first_name" readonly="" value="" placeholder="الاسم الاول" required="">
                         </div>
                         
                         <!-- Form Group -->
@@ -51,7 +51,7 @@
                         
                         <!-- Form Group -->
                         <div class="form-group col-lg-12">
-                            <input class="bg-transparent text-light" type="email" value="{{ auth()->user()->email }}" id="email" name="email" value="" placeholder="الاميل" required="">
+                            <input class="bg-transparent text-light" type="email" value="{{ auth()->user()->email }}" id="email" name="email" value="" readonly="" placeholder="الاميل" required="">
                         </div>
                         
                         <!-- Form Group -->

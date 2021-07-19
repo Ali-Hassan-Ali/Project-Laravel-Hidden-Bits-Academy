@@ -27,6 +27,8 @@ return [
     'rating'              => 'التقيم ',
     'certificates'         => 'الشهادات ',
     'courses'         => 'المدربين',
+    
+    'settings'         => 'الإعدادات',
 
 
     'users'                 => 'المشرفين',

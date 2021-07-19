@@ -10,6 +10,7 @@ use Intervention\Image\Facades\Image;
 
 class SettingController extends Controller
 {
+
     public function store(Request $request)
     {
         Setting($request->all())->save();
@@ -47,17 +48,17 @@ class SettingController extends Controller
     public function founder_update(Request $request, $id)
     {
 
-            $founder = Founder::find($id);
+        $founder = Founder::find($id);
 
-            $request->validate([
-                'name'        => 'required',
-                'email'       => 'required',
-                'phone'       => 'required',
-                'job'         => 'required',
-                'description' => 'required',
-                'image'       => 'image',
-            ]);
-            
+        $request->validate([
+            'name'        => 'required',
+            'email'       => 'required',
+            'phone'       => 'required',
+            'job'         => 'required',
+            'description' => 'required',
+            'image'       => 'image',
+        ]);
+
         try {
 
             $request_data = $request->except(['image']);

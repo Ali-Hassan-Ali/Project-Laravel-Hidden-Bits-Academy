@@ -66,7 +66,7 @@
                             <div class="nav-tabs-custom">
 
                                 @php
-                                    $models = ['users','categories','coaches','courses','posts','certificates','advisoryServices'];
+                                    $models = ['users','categories','coaches','courses','posts','certificates','advisoryServices','settings'];
                                     $maps = ['create', 'read', 'update', 'delete'];
                                 @endphp
 
@@ -79,6 +79,12 @@
                                 <div class="tab-content">
 
                                     @foreach ($models as $index=>$model)
+
+                                        @if ($model == 'settings')
+                                            @php
+                                                $maps = ['read'];
+                                            @endphp
+                                        @endif
 
                                         <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $model }}">
 

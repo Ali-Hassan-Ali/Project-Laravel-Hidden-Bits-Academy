@@ -5,18 +5,29 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Purchase;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class PurchaseController extends Controller
 {
+    public function __construct()
+    {
+        //create read update delete
+        $this->middleware(['permission:purchases_read'])->only('index');
+        $this->middleware(['permission:purchases_create'])->only('create');
+        $this->middleware(['permission:purchases_update'])->only('edit');
+        $this->middleware(['permission:purchases_delete'])->only('destroy');
+
+    } //end of constructor
 
     public function index()
     {
+
         $purchases = Purchase::whenSearch(request()->search)->orderBy('id', 'DESC')->paginate(10);
 
-        return view('dashboard.purchase.index',compact('purchases'));
+        return view('dashboard.purchases.index',compact('purchases'));
         
     }//end of index
 
@@ -24,17 +35,49 @@ class PurchaseController extends Controller
     
     public function create()
     {
-        return view('dashboard.posts.create');
+        $users = User::all();
+        $courses = Course::all();
+        return view('dashboard.purchases.create',compact('users','courses'));
     }//end of create
 
     
     public function store(Request $request)
     {
         $request->validate([
-            'description'       => 'required',
-            'short_description' => 'required',
-            'image'             => 'image',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'email'         => 'required',
+            'phone'         => 'required',
+            'bill_image'    => 'required',
+            'users_id'      => 'required',
         ]);
+
+       try {
+
+            $request_data = $request->except(['bill_image']);
+
+            if ($request->bill_image) {
+
+                Image::make($request->bill_image)
+                    ->resize(300, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->save(public_path('uploads/bill_image/' . $request->bill_image->hashName()));
+
+                $request_data['bill_image'] = $request->bill_image->hashName();
+
+            }//end of if
+
+            Purchase::create($request_data);
+
+            session()->flash('success', __('home.added_successfully'));
+            return redirect()->route('dashboard.purchases.index');
+
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+
+        }//end try
 
     }//end of store
 
@@ -49,7 +92,10 @@ class PurchaseController extends Controller
 
     public function edit(Purchase $purchase)
     {
-        return view('dashboard.posts.create');
+        $users = User::all();
+        $courses = Course::all();
+
+        return view('dashboard.purchases.edit',compact('purchase','users','courses'));
     }//end of edit
 
     

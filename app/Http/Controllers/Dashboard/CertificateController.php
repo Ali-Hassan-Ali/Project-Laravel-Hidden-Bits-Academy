@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class CertificateController extends Controller
 {
 
+    public function __construct()
+    {
+        //create read update delete
+        $this->middleware(['permission:certificates_read'])->only('index');
+        $this->middleware(['permission:certificates_create'])->only('create');
+        $this->middleware(['permission:certificates_update'])->only('edit');
+        $this->middleware(['permission:certificates_delete'])->only('destroy');
+
+    } //end of constructor
+
     public function index()
     {
         $certificates = Certificate::whenSearch(request()->search)->orderBy('id', 'DESC')->paginate(10);

@@ -50,12 +50,15 @@
 	                <div class="inner-column">
 	                <!-- Video Box -->
 	                    <div class="intro-video media-icon orange-color2">
-	                        <img class="video-img" src="{{ $details_course->image_path }}" alt="Video Image">
-	                        <a class="popup-videos" href="https://www.youtube.com/watch?v=atMUy_bPoQI">
-	                            <i class="fa fa-play"></i>
-	                        </a>
-	                        <h4>فديوو تعرفي عن الكورس</h4>
+	                        {{-- <img class="video-img" src="{{ $details_course->image_path }}" alt="Video Image"> --}}
+	                        <video controls poster="{{ $details_course->image_path }}">
+                              <source src="{{ asset('uploads/'.$details_course->demo_video) }}" type="video/ogg">
+                              <source src="{{ asset('uploads/'.$details_course->demo_video) }}" type="video/webm">
+                              	<i class="fa fa-play"></i>
+                            </video>
 	                    </div>
+	                    
+                        <h4 class="text-light text-center">فديوو تعرفي عن الكورس</h4>
 	                    <!-- End Video Box -->
 	                    <div class="course-features-info">
 	                        <ul class="" style="text-align: right;">

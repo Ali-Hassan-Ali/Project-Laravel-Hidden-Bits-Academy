@@ -9,6 +9,7 @@ use Intervention\Image\Facades\Image;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Purchase;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -25,6 +26,14 @@ class ProfileController extends Controller
     {
         // dd($request->all());
         $user = User::find($id);
+        
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', Rule::unique('users')->ignore($user->id),],
+            'image' => 'image',
+            'password' => 'confirmed',
+        ]);
+
         $categorys = Category::all();
 
         $request_data = $request->except(['password', 'password_confirmation','image']);

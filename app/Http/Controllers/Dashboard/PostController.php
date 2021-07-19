@@ -10,6 +10,17 @@ use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        //create read update delete
+        $this->middleware(['permission:posts_read'])->only('index');
+        $this->middleware(['permission:posts_create'])->only('create');
+        $this->middleware(['permission:posts_update'])->only('edit');
+        $this->middleware(['permission:posts_delete'])->only('destroy');
+
+    } //end of constructor
+    
     public function index()
     {
         $posts = Post::whenSearch(request()->search)->orderBy('id', 'DESC')->paginate(10);

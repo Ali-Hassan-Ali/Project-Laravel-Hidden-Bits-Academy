@@ -30,21 +30,21 @@
                                 
                                 @csrf
 
-                                <input class="bg-transparent text-light form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="اليميل" required="">
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong class="text-danger">{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                                <input class="bg-transparent text-light form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="password"  name="password" placeholder="كلمه المرور" required="">
+                                <input class="bg-transparent text-light form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="اليميل" required="">
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong class="text-danger">{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+                                <input class="bg-transparent text-light form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password"  name="password" placeholder="كلمه المرور" required="">
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                                 <button type="submit" class="btn btn-dark d-block col-12 btn-lg">تسجيل الدخول</button>
                                 <div class="last-password pt-3">
-                                    <p class="text-light">ليس لديك حساب ? <a href="{{ route('Register_Client') }}" class="text-light">انشاء حساب جديد</a></p>
+                                    <p class="text-light">ليس لديك حساب ? <a href="{{ route('Register_Client') }}" style="color: #aaa">انشاء حساب جديد</a></p>
                                 </div>
                             </form>
                         </div>

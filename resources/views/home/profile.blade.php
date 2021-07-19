@@ -25,6 +25,9 @@
                 <div class="main-part">                           
                     <div class="method-account">
                         <h2 class="login text-center"> تعديل بينات الحساب</h2>
+                        
+                        @include('partials._allerrord')
+
                         <form action="{{ route('profile.update',auth()->user()->id) }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('put') }}

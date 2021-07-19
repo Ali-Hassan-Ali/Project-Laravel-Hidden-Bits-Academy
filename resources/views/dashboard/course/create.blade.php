@@ -10,7 +10,7 @@
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('dashboard.dashboard')</a></li>
-                <li><a href="{{ route('dashboard.courses.index') }}">   </a></li>
+                <li><a href="{{ route('dashboard.courses.index') }}">  الكورس </a></li>
                 <li class="active">@lang('dashboard.add')</li>
             </ol>
         </section>
