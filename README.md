@@ -12,9 +12,9 @@
 9- Teacher add course </br>
 
 #Home
-1- Create acount 
-2- show category course 
-3- show details course 
-4- show video demo course
-5- subscrip course 
-6- profile users
+1- Create acount </br>
+2- show category course </br>
+3- show details course </br>
+4- show video demo course </br>
+5- subscrip course </br>
+6- profile users </br>
