@@ -1,6 +1,6 @@
 #Project Course Academy
 
-#Dashboard
+#Dashboard </br>
 1- Use Dashboard Admin LTE </br>
 2- Adding new admin with specific permissions </br>
 3- Create category </br>
@@ -11,7 +11,7 @@
 8- Add new Teacher </br>
 9- Teacher add course </br>
 
-#Home
+#Home </br>
 1- Create acount </br>
 2- show category course </br>
 3- show details course </br>
